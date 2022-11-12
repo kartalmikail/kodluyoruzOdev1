@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="isim"></h1>
+    Bugün günlerden;
+    <h2 id="tarih"></h2>
+    Saat ise;
+    <h3 id="saatdakika"></h3>
+    <script>
+      let gunler = [
+        "Pazar",
+        "Pazartesi",
+        "Salı",
+        "Çarşamba",
+        "Perşembe",
+        "Cuma",
+        "Cumartesi",
+      ];
+
+      let kullaniciAdi = prompt("İsminizi yazınız:");
+      document.getElementById("isim").innerHTML = `Merhaba ${kullaniciAdi}`;
+
+      const islem = () => {
+        let tarih = new Date();
+
+        const gunBul = () => {
+          return gunler[tarih.getDay()];
+        };
+
+        const saatBul = () => {
+          return tarih.getHours();
+        };
+
+        const dakikaBul = () => {
+          return tarih.getMinutes();
+        };
+
+        const saniyeBul = () => {
+          return tarih.getSeconds();
+        };
+
+        document.getElementById("tarih").innerHTML = gunBul();
+        document.getElementById("saatdakika").innerHTML =
+         `${saatBul()} : ${dakikaBul()} : ${saniyeBul()}`;
+      };
+
+      islem();//ilk gösterim için
+      setInterval(islem, 1000);
+    </script>
+  </body>
+</html>
